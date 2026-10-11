@@ -7,8 +7,10 @@
 - **Restaurant Name:** Lahore Shahi Qila Restaurant (لاہور شاہی قلعہ ریسٹورنٹ)
 - **Location:** Grand Trunk Rd, Singhpura Lahore, 54000, Pakistan
 - **Helpline & WhatsApp:** 03306863355 (`+923306863355`)
-- **Theme & Aesthetics:** Elegant Pastel Rosey Pink (`#F5CAD3`), Rose Gold (`#EAA9B7`), and Rich Warm Brown / Mocha (`#24161C`, `#4E2830`) inspired by the authentic brick entrance and Mughal rose heritage.
-- **Real Restaurant Entrance:** Features the physical restaurant entrance with the illuminated neon arch sign ("لاہور شاہی قلعہ RESTAURANT") at Grand Trunk Road, Singhpura Lahore.
+- **Theme & Aesthetics:** Royal Mughal heritage theme featuring **Warm Ivory** (`#FAF5EB`), **Deep Maroon** (`#4A0E17`, `#2A080E`), and **Antique Gold** (`#D4AF37`, `#F6D678`) accents.
+- **Royal Entrance Photography:** Authentic high-resolution photograph of the majestic Shahi Qila Lahore (Alamgiri Gate) entrance.
+- **Official Neon Emblem:** Front-facing illuminated neon arch sign ("لاہور شاہی قلعہ RESTAURANT") on red brick texture.
+- **High-Quality Dishes & Redesigned Platters:** Realistic, appetizing food photography for Chicken Kabab (`assets/images/grilled-chicken-kabab.jpg`) and Grand BBQ Platters (`assets/images/royal-bbq-platter.jpg`) with structured, neat item alignment.
 - **Currency:** Pakistani Rupee (`PKR` / `Rs.`)
 - **Mughal Culinary Specialties:** Live Charcoal BBQ, Handi in Clay Pots, Karahi in Woks, Fresh Tandoori Naan & Platters.
 

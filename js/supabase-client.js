@@ -301,7 +301,7 @@ const DEFAULT_MENU_ITEMS = [
         badge: 'Popular',
         is_featured: true,
         is_available: true,
-        image_url: 'https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=600&q=80'
+        image_url: 'assets/images/grilled-chicken-kabab.jpg'
     },
     {
         id: 22,
@@ -391,7 +391,7 @@ const DEFAULT_MENU_ITEMS = [
         badge: 'Royal Feast',
         is_featured: true,
         is_available: true,
-        image_url: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80'
+        image_url: 'assets/images/royal-bbq-platter.jpg'
     },
     {
         id: 29,
@@ -404,7 +404,7 @@ const DEFAULT_MENU_ITEMS = [
         badge: 'Super Saver',
         is_featured: true,
         is_available: true,
-        image_url: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80'
+        image_url: 'assets/images/royal-bbq-platter.jpg'
     },
 
     // TRADITIONAL HANDI
@@ -680,6 +680,14 @@ const LSQ_DB = {
             try {
                 const parsed = JSON.parse(cached);
                 if (Array.isArray(parsed) && parsed.length > 0) {
+                    // Sync updated images for Chicken Kabab and Platters
+                    parsed.forEach(item => {
+                        const def = DEFAULT_MENU_ITEMS.find(d => d.id === item.id);
+                        if (def && def.image_url.startsWith('assets/')) {
+                            item.image_url = def.image_url;
+                        }
+                    });
+                    localStorage.setItem(STORAGE_KEYS.MENU, JSON.stringify(parsed));
                     return { success: true, source: 'localStorage', data: parsed };
                 }
             } catch (e) {

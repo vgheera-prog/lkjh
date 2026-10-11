@@ -126,7 +126,7 @@ INSERT INTO public.menu_items (name, name_urdu, category, description, price, ha
 ('Roghni Naan', 'روغنی نان', 'tandoor', 'Soft leavened royal bread brushed with desi ghee and sesame seeds.', 75, NULL, NULL, '1 Pc', 'Classic', false, 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80'),
 
 -- BBQ PLATES
-('Chicken Kabab', 'چکن کباب', 'bbq', '4 succulent skewers of spiced minced chicken flame grilled over charcoal.', 745, NULL, NULL, '4 Pcs', 'Popular', true, 'https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=600&q=80'),
+('Chicken Kabab', 'چکن کباب', 'bbq', '4 succulent skewers of spiced minced chicken flame grilled over charcoal.', 745, NULL, NULL, '4 Pcs', 'Popular', true, 'assets/images/grilled-chicken-kabab.jpg'),
 ('Beef Kabab', 'بیف کباب', 'bbq', '4 skewers of tender spiced minced beef grilled to perfection over hot embers.', 845, NULL, NULL, '4 Pcs', 'Bestseller', true, 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80'),
 ('Chicken Tikka Boti', 'چکن تکہ بوٹی', 'bbq', '12 juicy chunks of chicken marinated in Lahore Shahi Qila special tandoori masala.', 745, NULL, NULL, '12 Pcs', 'Traditional', true, 'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=600&q=80'),
 ('Malai Boti', 'ملائی بوٹی', 'bbq', '12 melt-in-mouth chicken cubes marinated in rich fresh cream, cheese and mild spices.', 1150, NULL, NULL, '12 Pcs', 'Royal Favorite', true, 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=600&q=80'),
@@ -135,8 +135,8 @@ INSERT INTO public.menu_items (name, name_urdu, category, description, price, ha
 ('Tikka Piece', 'تکہ پیس (لیگ/بریسٹ)', 'bbq', 'Choice of chicken leg or breast piece marinated overnight and flame roasted.', 399, NULL, NULL, '1 Pc', 'Street Classic', false, 'https://images.unsplash.com/photo-1527477378407-668566b55d8a?auto=format&fit=crop&w=600&q=80'),
 
 -- BBQ PLATTERS
-('B.B.Q Platter 1 (Grand Royal)', 'بی بی کیو پلیٹر ۱ (شاہی)', 'platters', 'Grand Feast: Tikka Leg/Breast 2 pcs, Chicken Kabab 2 pcs, Beef Kabab 2 pcs, Cheese Kabab 2 pcs, Achari Boti 4 pcs, Boneless Tikka 4 pcs, Malai Boti 4 pcs, Tikka Boti 4 pcs, Raita, Kachumar Salad & 6 Hot Naans.', 3850, NULL, NULL, 'Serves 4 Persons', 'Royal Feast', true, 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80'),
-('B.B.Q Platter 2 (Couple Supreme)', 'بی بی کیو پلیٹر ۲ (کپل اسپیشل)', 'platters', 'Couple Deluxe: Tikka Leg/Breast 1 pc, Chicken Kabab 2 pcs, Beef Kabab 2 pcs, Achari Boti 2 pcs, Boneless Tikka 4 pcs, Malai Boti 4 pcs, Raita & 3 Hot Naans.', 2050, NULL, NULL, 'Serves 2 Persons', 'Super Saver', true, 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80'),
+('B.B.Q Platter 1 (Grand Royal)', 'بی بی کیو پلیٹر ۱ (شاہی)', 'platters', 'Grand Feast: Tikka Leg/Breast 2 pcs, Chicken Kabab 2 pcs, Beef Kabab 2 pcs, Cheese Kabab 2 pcs, Achari Boti 4 pcs, Boneless Tikka 4 pcs, Malai Boti 4 pcs, Tikka Boti 4 pcs, Raita, Kachumar Salad & 6 Hot Naans.', 3850, NULL, NULL, 'Serves 4 Persons', 'Royal Feast', true, 'assets/images/royal-bbq-platter.jpg'),
+('B.B.Q Platter 2 (Couple Supreme)', 'بی بی کیو پلیٹر ۲ (کپل اسپیشل)', 'platters', 'Couple Deluxe: Tikka Leg/Breast 1 pc, Chicken Kabab 2 pcs, Beef Kabab 2 pcs, Achari Boti 2 pcs, Boneless Tikka 4 pcs, Malai Boti 4 pcs, Raita & 3 Hot Naans.', 2050, NULL, NULL, 'Serves 2 Persons', 'Super Saver', true, 'assets/images/royal-bbq-platter.jpg'),
 
 -- TRADITIONAL HANDI
 ('Lemon Chilli Chicken Handi', 'لیمن چلی چکن ہانڈی', 'handi', 'Boneless chicken cubes simmered in a zesty, fiery lemon-green chilli gravy inside a clay pot.', 1350, NULL, NULL, '2-3 persons', 'Signature', true, 'https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?auto=format&fit=crop&w=600&q=80'),

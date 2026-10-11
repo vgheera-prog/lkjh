@@ -1,25 +1,25 @@
 /* ==============================================================================
    LAHORE SHAHI QILA RESTAURANT (لاہور شاہی قلعہ)
-   ADMIN PORTAL STYLESHEET - PASTEL ROSEY PINK & WARM BROWN THEME
+   ADMIN PORTAL STYLESHEET - ROYAL MUGHAL THEME (WARM IVORY, DEEP MAROON & ANTIQUE GOLD)
    ============================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 :root {
-    --bg-dark: #160D10;
-    --bg-sidebar: #1E1116;
-    --bg-card: #25161C;
-    --bg-card-hover: #2E1B23;
-    --border-color: rgba(245, 202, 211, 0.25);
+    --bg-dark: #120406;
+    --bg-sidebar: #1A070B;
+    --bg-card: #20090E;
+    --bg-card-hover: #2B0D13;
+    --border-color: rgba(212, 175, 55, 0.28);
     
-    --pink-pastel: #F5CAD3;
-    --pink-light: #FCEEF1;
-    --rose-gold: #EAA9B7;
-    --brown-brick: #4E2830;
-    --brown-accent: #6E3A45;
+    --gold-antique: #D4AF37;
+    --gold-light: #F6D678;
+    --maroon-deep: #2A080E;
+    --maroon-primary: #4A0E17;
+    --maroon-rich: #661421;
     
-    --text-white: #FFF5F7;
-    --text-muted: #C5ACB2;
+    --text-white: #FAF5EB;
+    --text-muted: #C4B2AA;
     
     --status-pending: #F59E0B;
     --status-preparing: #3B82F6;
@@ -48,7 +48,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 50% 40%, #361A22 0%, #12090C 100%);
+    background: radial-gradient(circle at 50% 40%, #380B12 0%, #0D0204 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -57,13 +57,13 @@ body {
 }
 
 .login-card {
-    background: #23141B;
-    border: 2px solid var(--rose-gold);
+    background: #1E070C;
+    border: 2px solid var(--gold-antique);
     border-radius: 20px;
     padding: 40px;
     width: 100%;
     max-width: 440px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(245, 202, 211, 0.2);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.85), 0 0 30px rgba(212, 175, 55, 0.25);
     text-align: center;
 }
 
@@ -71,20 +71,27 @@ body {
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    background: #4D2630;
-    border: 2px solid var(--pink-pastel);
+    background: #4D0E18;
+    border: 2px solid var(--gold-antique);
     margin: 0 auto 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--pink-pastel);
+    color: var(--gold-antique);
     font-size: 1.8rem;
+    overflow: hidden;
+}
+
+.login-crest img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .login-title {
     font-family: 'Cinzel', serif;
     font-size: 1.4rem;
-    color: #FFF;
+    color: var(--text-white);
     margin-bottom: 4px;
 }
 
@@ -102,14 +109,14 @@ body {
 .login-input-group label {
     display: block;
     font-size: 0.82rem;
-    color: var(--pink-pastel);
+    color: var(--gold-light);
     margin-bottom: 6px;
     font-weight: 600;
 }
 
 .login-input-group input {
     width: 100%;
-    background: #170C10;
+    background: #110305;
     border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 12px 16px;
@@ -121,15 +128,15 @@ body {
 }
 
 .login-input-group input:focus {
-    border-color: var(--pink-pastel);
-    box-shadow: 0 0 15px rgba(245, 202, 211, 0.3);
+    border-color: var(--gold-antique);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.35);
 }
 
 .btn-login-submit {
     width: 100%;
-    background: linear-gradient(135deg, #F3CAD3 0%, #E193A4 50%, #C86E82 100%);
+    background: linear-gradient(135deg, #F3D16B 0%, #D4AF37 50%, #B88E23 100%);
     border: none;
-    color: #241117;
+    color: #120508;
     font-weight: 800;
     padding: 14px;
     border-radius: 8px;
@@ -140,7 +147,7 @@ body {
 
 .btn-login-submit:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(245, 202, 211, 0.4);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.45);
 }
 
 /* APP SHELL LAYOUT */
@@ -168,17 +175,24 @@ body {
 }
 
 .sidebar-brand .crest-mini {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
-    background: #4B242E;
-    border: 1px solid var(--rose-gold);
+    background: #4D0E18;
+    border: 1px solid var(--gold-antique);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--pink-pastel);
+    color: var(--gold-antique);
     font-size: 1.1rem;
     flex-shrink: 0;
+    overflow: hidden;
+}
+
+.sidebar-brand .crest-mini img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .sidebar-brand h3 {
@@ -190,7 +204,7 @@ body {
 
 .sidebar-brand span {
     font-size: 0.72rem;
-    color: var(--pink-pastel);
+    color: var(--gold-light);
     letter-spacing: 1px;
 }
 
@@ -226,15 +240,15 @@ body {
 }
 
 .sidebar-nav-item button.active {
-    background: rgba(245, 202, 211, 0.15);
-    color: var(--pink-pastel);
-    border-left: 3px solid var(--pink-pastel);
+    background: rgba(212, 175, 55, 0.16);
+    color: var(--gold-light);
+    border-left: 3px solid var(--gold-antique);
 }
 
 .sidebar-nav-item button i {
     width: 20px;
     font-size: 1rem;
-    color: var(--pink-pastel);
+    color: var(--gold-antique);
 }
 
 .sidebar-footer {
@@ -273,7 +287,7 @@ body {
 }
 
 .admin-topbar {
-    background: #1C1014;
+    background: #170508;
     border-bottom: 1px solid var(--border-color);
     padding: 16px 28px;
     display: flex;
@@ -315,7 +329,7 @@ body {
 .btn-sound-toggle {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--border-color);
-    color: var(--pink-pastel);
+    color: var(--gold-light);
     padding: 7px 14px;
     border-radius: 8px;
     cursor: pointer;
@@ -327,8 +341,8 @@ body {
 }
 
 .btn-customer-site {
-    background: #5A2A34;
-    border: 1px solid var(--rose-gold);
+    background: linear-gradient(135deg, #661421, #380B12);
+    border: 1px solid var(--gold-antique);
     color: #FFF;
     padding: 7px 16px;
     border-radius: 8px;
@@ -342,7 +356,7 @@ body {
 }
 
 .btn-customer-site:hover {
-    background: #733644;
+    background: #841B2B;
 }
 
 .admin-body-content {
@@ -366,19 +380,19 @@ body {
     display: flex;
     align-items: center;
     gap: 16px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
 .stat-icon {
     width: 48px;
     height: 48px;
     border-radius: 10px;
-    background: rgba(245, 202, 211, 0.12);
-    border: 1px solid var(--rose-gold);
+    background: rgba(212, 175, 55, 0.12);
+    border: 1px solid var(--gold-antique);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--pink-pastel);
+    color: var(--gold-antique);
     font-size: 1.3rem;
 }
 
@@ -407,7 +421,7 @@ body {
 
 .orders-filter-bar {
     padding: 16px 20px;
-    background: #1C1014;
+    background: #170508;
     border-bottom: 1px solid var(--border-color);
     display: flex;
     justify-content: space-between;
@@ -423,7 +437,7 @@ body {
 }
 
 .order-tab-btn {
-    background: #25161C;
+    background: #20090E;
     border: 1px solid rgba(255, 255, 255, 0.1);
     color: var(--text-muted);
     padding: 6px 14px;
@@ -439,10 +453,10 @@ body {
 }
 
 .order-tab-btn.active {
-    background: var(--pink-pastel);
-    color: #241117;
+    background: var(--gold-antique);
+    color: #120508;
     font-weight: 800;
-    border-color: var(--pink-pastel);
+    border-color: var(--gold-antique);
 }
 
 .orders-table-wrapper {
@@ -456,11 +470,11 @@ body {
 }
 
 .orders-table th {
-    background: #170C10;
+    background: #140407;
     padding: 14px 18px;
     font-size: 0.8rem;
     font-weight: 700;
-    color: var(--pink-pastel);
+    color: var(--gold-light);
     text-transform: uppercase;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -469,7 +483,7 @@ body {
     padding: 16px 18px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     font-size: 0.9rem;
-    color: #E6D8DC;
+    color: #EADBCE;
 }
 
 .orders-table tr:hover td {
@@ -494,7 +508,7 @@ body {
 
 /* Status selector dropdown in table */
 .status-changer-select {
-    background: #170C10;
+    background: #110305;
     border: 1px solid var(--border-color);
     color: #FFF;
     padding: 6px 10px;
@@ -505,9 +519,9 @@ body {
 }
 
 .btn-kot-print {
-    background: #2D1A22;
-    border: 1px solid var(--rose-gold);
-    color: var(--pink-pastel);
+    background: #2B0D13;
+    border: 1px solid var(--gold-antique);
+    color: var(--gold-light);
     padding: 6px 12px;
     border-radius: 6px;
     font-size: 0.8rem;
@@ -520,8 +534,8 @@ body {
 }
 
 .btn-kot-print:hover {
-    background: var(--pink-pastel);
-    color: #241117;
+    background: var(--gold-antique);
+    color: #120508;
 }
 
 /* TAB VIEWS */
