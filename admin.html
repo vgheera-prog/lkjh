@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal | Lahore Shahi Qila Restaurant | Order Management</title>
+    
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Admin Stylesheet -->
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+    <!-- SECURE PIN LOGIN OVERLAY -->
+    <div class="admin-login-wrapper" id="loginOverlay">
+        <div class="login-card">
+            <div class="login-crest">
+                <i class="fas fa-crown"></i>
+            </div>
+            <h2 class="login-title">Lahore Shahi Qila</h2>
+            <div style="font-family:'Noto Nastaliq Urdu', serif; color:var(--gold); font-size:1.1rem; margin-bottom:4px;">لاہور شاہی قلعہ ریسٹورنٹ</div>
+            <p class="login-subtitle">Kitchen & Management Administration Portal</p>
+
+            <form id="loginForm">
+                <div class="login-input-group">
+                    <label for="adminPinInput"><i class="fas fa-lock"></i> Enter Security PIN</label>
+                    <input type="password" id="adminPinInput" placeholder="••••" maxlength="8" value="1234" required autofocus>
+                    <small style="display:block; margin-top:6px; color:var(--text-muted); font-size:0.75rem;">Default Demo PIN: <strong>1234</strong></small>
+                </div>
+                <button type="submit" class="btn-login-submit">
+                    <i class="fas fa-sign-in-alt"></i> Access Admin Console
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MAIN ADMIN APP LAYOUT -->
+    <div class="admin-layout">
+        <!-- SIDEBAR -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-brand">
+                <div class="crest-mini">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <div>
+                    <h3>Shahi Qila</h3>
+                    <span>KITCHEN ADMIN</span>
+                </div>
+            </div>
+
+            <ul class="sidebar-nav-list">
+                <li class="sidebar-nav-item">
+                    <button type="button" class="active" data-tab="orders">
+                        <i class="fas fa-fire-burner"></i>
+                        <span>Live Kitchen Orders</span>
+                    </button>
+                </li>
+                <li class="sidebar-nav-item">
+                    <button type="button" data-tab="menu">
+                        <i class="fas fa-utensils"></i>
+                        <span>Menu & Stock</span>
+                    </button>
+                </li>
+                <li class="sidebar-nav-item">
+                    <button type="button" data-tab="supabase">
+                        <i class="fas fa-database"></i>
+                        <span>Supabase Backend</span>
+                    </button>
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <button type="button" class="btn-logout" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Lock / Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="admin-main">
+            <!-- TOPBAR -->
+            <header class="admin-topbar">
+                <div class="topbar-title">
+                    <h2>Restaurant Operations Desk</h2>
+                    <span style="font-size:0.8rem; color:var(--text-muted);">Grand Trunk Rd, Singhpura Lahore • 03306863355</span>
+                </div>
+
+                <div class="topbar-actions">
+                    <div class="db-status-pill" id="dbStatusPill">
+                        <i class="fas fa-database"></i> Checking DB...
+                    </div>
+                    <button type="button" class="btn-sound-toggle" id="soundToggleBtn">
+                        <i class="fas fa-volume-up"></i> Sound Alerts: ON
+                    </button>
+                    <a href="index.html" target="_blank" class="btn-customer-site">
+                        <i class="fas fa-external-link-alt"></i> View Customer Store
+                    </a>
+                </div>
+            </header>
+
+            <div class="admin-body-content">
+                <!-- ================= TAB 1: ORDERS ================= -->
+                <section class="admin-tab-pane active" id="ordersTab">
+                    <!-- Analytics Stat Cards -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-wallet"></i>
+                            </div>
+                            <div class="stat-info">
+                                <div class="label">Total Sales (PKR)</div>
+                                <div class="value" id="statTotalRevenue">Rs. 0</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-receipt"></i>
+                            </div>
+                            <div class="stat-info">
+                                <div class="label">Total Orders</div>
+                                <div class="value" id="statTotalOrders">0</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-spinner fa-spin"></i>
+                            </div>
+                            <div class="stat-info">
+                                <div class="label">Active in Kitchen</div>
+                                <div class="value" id="statActiveOrders">0</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-check-double"></i>
+                            </div>
+                            <div class="stat-info">
+                                <div class="label">Delivered Orders</div>
+                                <div class="value" id="statDeliveredOrders">0</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Orders Board Table -->
+                    <div class="orders-section">
+                        <div class="orders-filter-bar">
+                            <div class="order-filter-tabs">
+                                <button type="button" class="order-tab-btn active" data-status="all">All Orders</button>
+                                <button type="button" class="order-tab-btn" data-status="pending">⏳ Pending</button>
+                                <button type="button" class="order-tab-btn" data-status="preparing">🔥 Preparing (Kitchen)</button>
+                                <button type="button" class="order-tab-btn" data-status="out_for_delivery">🚗 Out for Delivery</button>
+                                <button type="button" class="order-tab-btn" data-status="delivered">✅ Delivered</button>
+                                <button type="button" class="order-tab-btn" data-status="cancelled">❌ Cancelled</button>
+                            </div>
+
+                            <div style="font-size:0.8rem; color:var(--text-muted); display:flex; align-items:center; gap:8px;">
+                                <i class="fas fa-sync-alt fa-spin" style="color:var(--gold);"></i>
+                                <span>Auto-syncing every 8s</span>
+                            </div>
+                        </div>
+
+                        <div class="orders-table-wrapper">
+                            <table class="orders-table">
+                                <thead>
+                                    <tr>
+                                        <th>Order # / Time</th>
+                                        <th>Customer & Phone</th>
+                                        <th>Type & Address</th>
+                                        <th>Dishes Ordered</th>
+                                        <th>Bill (PKR)</th>
+                                        <th>Kitchen Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ordersTableBody">
+                                    <!-- Injected via admin.js -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ================= TAB 2: MENU & STOCK ================= -->
+                <section class="admin-tab-pane" id="menuTab">
+                    <div style="background:var(--bg-card); border:1px solid var(--border-color); border-radius:12px; padding:24px; margin-bottom:24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+                        <div>
+                            <h3 style="color:#FFF; font-size:1.2rem; font-family:'Cinzel',serif;">Royal Dishes & Kitchen Stock</h3>
+                            <p style="color:var(--text-muted); font-size:0.85rem;">Toggle dish availability when ingredients run out. Customers won't be able to order out-of-stock items.</p>
+                        </div>
+
+                        <div style="min-width:300px;">
+                            <input type="text" id="adminMenuSearch" placeholder="Filter dishes (e.g. Karahi, Handi, Fries)..." style="width:100%; background:#0B0E16; border:1px solid var(--border-color); border-radius:8px; padding:10px 16px; color:#FFF;">
+                        </div>
+                    </div>
+
+                    <div id="adminMenuGrid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:20px;">
+                        <!-- Injected via admin.js -->
+                    </div>
+                </section>
+
+                <!-- ================= TAB 3: SUPABASE BACKEND ================= -->
+                <section class="admin-tab-pane" id="supabaseTab">
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:24px;">
+                        <!-- Supabase Config Status -->
+                        <div style="background:var(--bg-card); border:1px solid var(--border-color); border-radius:12px; padding:28px;">
+                            <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+                                <div style="width:44px; height:44px; border-radius:10px; background:rgba(16,185,129,0.15); border:1px solid #10B981; display:flex; align-items:center; justify-content:center; color:#10B981; font-size:1.2rem;">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <div>
+                                    <h3 style="color:#FFF; font-size:1.15rem;">Supabase Connection Info</h3>
+                                    <span style="color:var(--text-muted); font-size:0.8rem;">Project: hrnimbbhjccixheydcom</span>
+                                </div>
+                            </div>
+
+                            <div style="background:#0B0E16; border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:16px; margin-bottom:20px; font-size:0.85rem;">
+                                <div style="margin-bottom:8px;">
+                                    <strong style="color:var(--gold-light);">REST API URL:</strong>
+                                    <div style="color:#AAA; word-break:break-all; font-family:monospace; margin-top:2px;">https://hrnimbbhjccixheydcom.supabase.co</div>
+                                </div>
+                                <div>
+                                    <strong style="color:var(--gold-light);">Anonymous Key:</strong>
+                                    <div style="color:#888; font-family:monospace; font-size:0.75rem; word-break:break-all; margin-top:2px;">
+                                        eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3Mi...E5RXCYIkv_eWTvr_fPE
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="display:flex; flex-direction:column; gap:12px;">
+                                <button type="button" class="btn-kot-print" id="btnTestDb" style="justify-content:center; padding:12px; font-size:0.9rem;">
+                                    <i class="fas fa-plug"></i> Test Supabase Connection
+                                </button>
+                                <button type="button" class="btn-login-submit" id="btnSeedMenu" style="justify-content:center; padding:12px; font-size:0.9rem;">
+                                    <i class="fas fa-cloud-upload-alt"></i> Seed 45 Menu Dishes to Supabase
+                                </button>
+                                <button type="button" class="btn-kot-print" id="btnCopySql" style="justify-content:center; padding:12px; font-size:0.9rem; border-color:var(--gold-light); color:#FFF;">
+                                    <i class="fas fa-copy"></i> Copy Full SQL Setup Script
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 1-Click Guide -->
+                        <div style="background:var(--bg-card); border:1px solid var(--border-color); border-radius:12px; padding:28px;">
+                            <h3 style="color:#FFF; font-size:1.15rem; margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+                                <i class="fas fa-info-circle" style="color:var(--gold);"></i> 2-Minute Supabase Database Setup
+                            </h3>
+                            <p style="color:var(--text-muted); font-size:0.88rem; line-height:1.6; margin-bottom:16px;">
+                                If your Supabase database is new, you only need to run the included SQL script once to create the tables (<code style="color:var(--gold-light);">orders</code> and <code style="color:var(--gold-light);">menu_items</code>) and allow orders to be stored in the cloud.
+                            </p>
+
+                            <ol style="color:#DDD; font-size:0.85rem; line-height:1.8; padding-left:20px; margin-bottom:20px;">
+                                <li>Open your <a href="https://supabase.com/dashboard/project/hrnimbbhjccixheydcom" target="_blank" style="color:var(--gold-light); font-weight:700;">Supabase Project Dashboard</a></li>
+                                <li>Click on <strong>SQL Editor</strong> on the left navigation bar.</li>
+                                <li>Click <strong>New Query</strong>.</li>
+                                <li>Click the button <strong>"Copy Full SQL Setup Script"</strong> on the left, paste into the editor, and click <strong>RUN</strong>!</li>
+                                <li>That's it! Your PostgreSQL database is live and synchronized with real-time orders and menu items.</li>
+                            </ol>
+
+                            <div style="background:rgba(212,175,55,0.08); border:1px dashed var(--gold); border-radius:8px; padding:14px; font-size:0.82rem; color:var(--gold-light);">
+                                <i class="fas fa-shield-alt"></i> <strong>Zero Downtime Fallback:</strong> The website and admin panel automatically store all customer orders in persistent browser memory even before running the SQL script, so no customer order is ever lost!
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- SUPABASE JS & ADMIN ENGINE -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-client.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

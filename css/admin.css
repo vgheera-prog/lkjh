@@ -1,0 +1,571 @@
+/* ==============================================================================
+   LAHORE SHAHI QILA RESTAURANT (لاہور شاہی قلعہ)
+   ADMIN PORTAL STYLESHEET - PASTEL ROSEY PINK & WARM BROWN THEME
+   ============================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg-dark: #160D10;
+    --bg-sidebar: #1E1116;
+    --bg-card: #25161C;
+    --bg-card-hover: #2E1B23;
+    --border-color: rgba(245, 202, 211, 0.25);
+    
+    --pink-pastel: #F5CAD3;
+    --pink-light: #FCEEF1;
+    --rose-gold: #EAA9B7;
+    --brown-brick: #4E2830;
+    --brown-accent: #6E3A45;
+    
+    --text-white: #FFF5F7;
+    --text-muted: #C5ACB2;
+    
+    --status-pending: #F59E0B;
+    --status-preparing: #3B82F6;
+    --status-delivery: #A855F7;
+    --status-delivered: #22C55E;
+    --status-cancelled: #EF4444;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--bg-dark);
+    color: var(--text-white);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    min-height: 100vh;
+}
+
+/* AUTH LOGIN OVERLAY */
+.admin-login-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 40%, #361A22 0%, #12090C 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+}
+
+.login-card {
+    background: #23141B;
+    border: 2px solid var(--rose-gold);
+    border-radius: 20px;
+    padding: 40px;
+    width: 100%;
+    max-width: 440px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(245, 202, 211, 0.2);
+    text-align: center;
+}
+
+.login-crest {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #4D2630;
+    border: 2px solid var(--pink-pastel);
+    margin: 0 auto 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--pink-pastel);
+    font-size: 1.8rem;
+}
+
+.login-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    color: #FFF;
+    margin-bottom: 4px;
+}
+
+.login-subtitle {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 24px;
+}
+
+.login-input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.login-input-group label {
+    display: block;
+    font-size: 0.82rem;
+    color: var(--pink-pastel);
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.login-input-group input {
+    width: 100%;
+    background: #170C10;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: #FFF;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    outline: none;
+    text-align: center;
+}
+
+.login-input-group input:focus {
+    border-color: var(--pink-pastel);
+    box-shadow: 0 0 15px rgba(245, 202, 211, 0.3);
+}
+
+.btn-login-submit {
+    width: 100%;
+    background: linear-gradient(135deg, #F3CAD3 0%, #E193A4 50%, #C86E82 100%);
+    border: none;
+    color: #241117;
+    font-weight: 800;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-login-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(245, 202, 211, 0.4);
+}
+
+/* APP SHELL LAYOUT */
+.admin-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* SIDEBAR */
+.admin-sidebar {
+    width: 270px;
+    background: var(--bg-sidebar);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.sidebar-brand {
+    padding: 24px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sidebar-brand .crest-mini {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #4B242E;
+    border: 1px solid var(--rose-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--pink-pastel);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.sidebar-brand h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.95rem;
+    color: #FFF;
+    line-height: 1.2;
+}
+
+.sidebar-brand span {
+    font-size: 0.72rem;
+    color: var(--pink-pastel);
+    letter-spacing: 1px;
+}
+
+.sidebar-nav-list {
+    list-style: none;
+    padding: 20px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+
+.sidebar-nav-item button {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: 0.2s;
+    text-align: left;
+}
+
+.sidebar-nav-item button:hover {
+    color: #FFF;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-nav-item button.active {
+    background: rgba(245, 202, 211, 0.15);
+    color: var(--pink-pastel);
+    border-left: 3px solid var(--pink-pastel);
+}
+
+.sidebar-nav-item button i {
+    width: 20px;
+    font-size: 1rem;
+    color: var(--pink-pastel);
+}
+
+.sidebar-footer {
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.btn-logout {
+    width: 100%;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #EF4444;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: 0.2s;
+}
+
+.btn-logout:hover {
+    background: #EF4444;
+    color: #FFF;
+}
+
+/* MAIN CONTENT AREA */
+.admin-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+.admin-topbar {
+    background: #1C1014;
+    border-bottom: 1px solid var(--border-color);
+    padding: 16px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topbar-title h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    color: #FFF;
+}
+
+.topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.db-status-pill {
+    background: rgba(34, 197, 94, 0.15);
+    border: 1px solid #22C55E;
+    color: #22C55E;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.db-status-pill.warning {
+    background: rgba(245, 158, 11, 0.15);
+    border-color: #F59E0B;
+    color: #F59E0B;
+}
+
+.btn-sound-toggle {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    color: var(--pink-pastel);
+    padding: 7px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-customer-site {
+    background: #5A2A34;
+    border: 1px solid var(--rose-gold);
+    color: #FFF;
+    padding: 7px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: 0.2s;
+}
+
+.btn-customer-site:hover {
+    background: #733644;
+}
+
+.admin-body-content {
+    padding: 28px;
+    flex: 1;
+}
+
+/* STATS ROW */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    background: rgba(245, 202, 211, 0.12);
+    border: 1px solid var(--rose-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--pink-pastel);
+    font-size: 1.3rem;
+}
+
+.stat-info .label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.stat-info .value {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #FFF;
+    margin-top: 2px;
+}
+
+/* ORDERS VIEW */
+.orders-section {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.orders-filter-bar {
+    padding: 16px 20px;
+    background: #1C1014;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.order-filter-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.order-tab-btn {
+    background: #25161C;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-muted);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.order-tab-btn:hover {
+    color: #FFF;
+}
+
+.order-tab-btn.active {
+    background: var(--pink-pastel);
+    color: #241117;
+    font-weight: 800;
+    border-color: var(--pink-pastel);
+}
+
+.orders-table-wrapper {
+    overflow-x: auto;
+}
+
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.orders-table th {
+    background: #170C10;
+    padding: 14px 18px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--pink-pastel);
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.orders-table td {
+    padding: 16px 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.9rem;
+    color: #E6D8DC;
+}
+
+.orders-table tr:hover td {
+    background: var(--bg-card-hover);
+}
+
+/* Status Badges */
+.status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.status-badge.pending { background: rgba(245, 158, 11, 0.2); color: #F59E0B; border: 1px solid #F59E0B; }
+.status-badge.preparing { background: rgba(59, 130, 246, 0.2); color: #3B82F6; border: 1px solid #3B82F6; }
+.status-badge.out_for_delivery { background: rgba(168, 85, 247, 0.2); color: #C084FC; border: 1px solid #C084FC; }
+.status-badge.delivered { background: rgba(34, 197, 94, 0.2); color: #22C55E; border: 1px solid #22C55E; }
+.status-badge.cancelled { background: rgba(239, 68, 68, 0.2); color: #EF4444; border: 1px solid #EF4444; }
+
+/* Status selector dropdown in table */
+.status-changer-select {
+    background: #170C10;
+    border: 1px solid var(--border-color);
+    color: #FFF;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    cursor: pointer;
+    outline: none;
+}
+
+.btn-kot-print {
+    background: #2D1A22;
+    border: 1px solid var(--rose-gold);
+    color: var(--pink-pastel);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: 0.2s;
+}
+
+.btn-kot-print:hover {
+    background: var(--pink-pastel);
+    color: #241117;
+}
+
+/* TAB VIEWS */
+.admin-tab-pane {
+    display: none;
+}
+
+.admin-tab-pane.active {
+    display: block;
+}
+
+/* KITCHEN THERMAL RECEIPT PRINT STYLES */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    #kotPrintArea, #kotPrintArea * {
+        visibility: visible;
+    }
+    #kotPrintArea {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 80mm;
+        color: #000 !important;
+        background: #FFF !important;
+        font-family: monospace;
+        font-size: 12px;
+        padding: 5mm;
+    }
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .admin-sidebar {
+        width: 80px;
+    }
+    .sidebar-brand h3, .sidebar-brand span, .sidebar-nav-item button span, .btn-logout span {
+        display: none;
+    }
+    .sidebar-brand {
+        justify-content: center;
+    }
+}
